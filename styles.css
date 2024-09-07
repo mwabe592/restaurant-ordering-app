@@ -1,0 +1,40 @@
+body {
+  margin: 0 auto 0 auto;
+  font-family: "Smythe", cursive;
+  width: 700px;
+  min-height: 1200px;
+}
+
+header {
+  background-image: url("images/burger-heading.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 700px;
+  height: 190px;
+}
+
+main {
+  width: 600px;
+  height: 100vh;
+  margin: auto 0;
+}
+
+.header-text {
+  padding: 20px;
+  color: white;
+}
+
+/* shop items
+
+item
+
+item-name
+ingrideints 
+item price emoji 
+button*/
+
+/* shopping cart */
+
+.your-order {
+  font-size: 15px;
+}

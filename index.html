@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Ordering App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-text">
+        <h1 class="header-title">Ben's Burgers</h1>
+        <h2 class="header-subtitle">The best burgers in town</h2>
+      </div>
+    </header>
+    <main>
+      <div class="items">
+        <!-- //items list -->
+      </div>
+      <div class="hidden" id="hidden">
+        <div class="shopping-cart">
+          <p class="your-order">YOUR ORDER</p>
+        </div>
+        <div class="render-items">
+          <!-- shopping cart items -->
+        </div>
+        <div class="total-price--container">
+          <p class="total-price">TOTAL PRICE</p>
+          <span class="price-amount">$</span>
+        </div>
+        <div class="complete-order">
+          <button type="button" class="complete-btn" id="complete-btn"></button>
+        </div>
+        <div class="card-details">
+          <h1>Enter card details</h1>
+          <form class="form" id="form">
+            <input type="text" placeholder="Enter Your Name" />
+            <input type="text" placeholder="Enter Card Number" />
+            <input type="text" placeholder="Enter CVV" />
+          </form>
+          <button type="submit" class="pay-btn" id="pay-btn">PAY</button>
+        </div>
+        <div class="order-complete-message">
+          <p class="order-complete">Ben your order is complete!!</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
