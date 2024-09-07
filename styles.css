@@ -15,7 +15,7 @@ header {
   background-size: cover;
   width: 700px;
   height: 190px;
-  color: #ffffff;
+  color: orange;
 }
 
 /* header font sizes */
@@ -40,7 +40,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 70px 0px;
-  border-bottom: solid 1px #d2d2d2;
+  border-bottom: solid 2px #d2d2d2;
 }
 
 .shop-item {
@@ -54,19 +54,21 @@ header {
 }
 
 .item-name {
-  font-size: 30px;
+  font-size: 40px;
   margin: 12px 0px 0px 0px;
 }
 
 .item-ingredients {
-  font-size: 18px;
+  font-size: 20px;
   color: #8b8b8b;
   margin: 30px 0px 0px 0px;
 }
 
 .item-price {
   font-weight: bold;
+  font-size: 30px;
   margin: 30px 0px 0px 0px;
+  padding-top: 10px;
 }
 
 .dollar-sign {
@@ -79,11 +81,11 @@ header {
 }
 
 .add-btn {
-  border-radius: 100%;
+  border-radius: 50%;
   border: #dedede solid 2px;
   background-color: #ffffff;
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   font-size: 30px;
   font-family: "Inter", sans-serif;
 }
@@ -108,7 +110,6 @@ header {
   display: flex;
   justify-content: space-between;
   font-size: 29px;
-  padding-right: 0px;
 }
 .dollar-sign-cart {
   font-size: 29px;
@@ -118,21 +119,20 @@ header {
   margin: 10px 0px 0px 0px;
 }
 
-.shopping-cart {
+.shopping-cart-title {
   display: flex;
   justify-content: center;
 }
 
 .hidden {
-  display: none; /*block on click*/
+  /* display: none; block on click */
 }
-.render-cart-items {
+.cart-list {
   padding-bottom: 20px;
   border-bottom: 3px solid #393333;
 }
 
-.complete-btn,
-.pay-btn {
+.big-btn {
   background-color: #16db99;
   border: none;
   color: white;
@@ -142,14 +142,12 @@ header {
   font-size: 30px;
 }
 
-.complete-btn:hover,
 .pay-btn:hover {
   background-color: #17e39f;
   color: #252525;
 }
 
-.complete-btn:active,
-.pay-btn:active {
+.big-btn:active {
   background-color: #13ba82;
   color: #ffffff;
 }
@@ -159,7 +157,8 @@ header {
   justify-content: space-between;
   align-items: center;
   margin: 10px 0px;
-  line-height: 0px;
+  /* see if line height affects things when you
+  add in items from js */
   font-size: 30px;
 }
 
@@ -218,6 +217,7 @@ input {
 }
 
 .order-message {
+  display: none;
   font-size: 40px;
   text-align: center;
   background-color: #ecfdf5;
