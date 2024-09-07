@@ -1,60 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant Ordering App</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js" type="module"></script>
   </head>
   <body>
     <header>
       <div class="header-text">
-        <h1 class="header-title">Ben's African Cuisine</h1>
-        <h2 class="header-subtitle">The best African food in town</h2>
+        <p class="header-title">Jimmy's Diner</p>
+        <p class="header-subtitle">The best burgers and pizzas in town.</p>
       </div>
     </header>
     <main>
-      <div class="item-list" id="items-list">
-        <!-- this is where the items go -->
-      </div>
-
-      <!-- shopping cart -->
-      <div class="hidden" id="hidden">
-        <div class="shopping-cart">
-          <p class="your-order">YOUR ORDER</p>
-        </div>
-        <!-- <div class="render-cart-items"></div> item will be rendered here by JS -->
-        <div class="cart-items">
-          <div class="item-and-remove">
-            <p class="cart-item-name">Jollof</p>
-            <button class="remove-btn">remove</button>
+      <div id="item-list">
+        <!-- menu items -->
+        <div class="shop-item-line">
+          <div class="shop-item">
+            <img src="${item.emoji}" class="emoji" />
+            <div class="item-info">
+              <p class="item-name">${item.name}</p>
+              <p class="item-ingredients">${item.ingredients}</p>
+              <p class="item-price">
+                <span class="dollar-sign">$</span>${item.price}
+              </p>
+              <p class="item-price"><span class="dollar-sign">$</span>Jollof</p>
+            </div>
           </div>
-        </div>
-        <div class="total-price--container">
-          <p>TOTAL PRICE</p>
-          <span id="total-price"></span>
-        </div>
-        <div class="complete-order">
-          <button type="button" class="complete-btn big-btn" id="complete-btn">
-            Complete Order
+          <button
+            data-buy="${item.id}"
+            type="button"
+            class="add-btn"
+            id="add-btn"
+          >
+            +
           </button>
         </div>
       </div>
-      <div class="card-details">
-        <h1>Enter card details</h1>
-        <form class="form" id="form">
-          <input type="text" placeholder="Enter Your Name" />
-          <input type="text" placeholder="Enter Card Number" />
-          <input type="text" placeholder="Enter CVV" />
-        </form>
-        <button type="button" class="pay-btn big-btn" id="pay-btn">PAY</button>
+      <!-- suggested -->
+      <div class="hidden" id="hidden">
+        <div class="shopping-cart" id="shopping-cart">
+          <p class="your-order">Your Order</p>
+        </div>
+        <!-- suggestion id="cart-list" -->
+        <div class="render-cart-items" id="render-cart-items">
+          <!-- shopping-cart -->
+        </div>
+        <div class="total-price-container">
+          <p>Total Price</p>
+          <span id="total-price"></span>
+        </div>
+        <button type="button" class="complete-btn" id="complete-btn">
+          Complete Order
+        </button>
       </div>
-      <div class="order-complete-message">
-        <p class="order-complete" id="order-complete">
-          Ben your order is complete!!
-        </p>
+      <div class="card-details" id="card-details">
+        <h1 class="enter-details">Enter Card Details</h1>
+        <form class="form" id="form">
+          <input
+            type="text"
+            placeholder="Enter Card Name"
+            name="card-name"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Enter Card Number"
+            name="card-number"
+            required
+          />
+          <input type="text" placeholder="Enter CVV" name="card-cvv" required />
+          <button type="submit" class="pay-btn" id="pay-btn">Pay</button>
+        </form>
+      </div>
+      <div class="order-coming-message" id="order-coming-message">
+        <!-- render text her -->
       </div>
     </main>
-    <script type="module" src="index.js"></script>
   </body>
 </html>

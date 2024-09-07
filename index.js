@@ -6,19 +6,9 @@ const payButton = document.getElementById("pay-btn");
 function getMenuHTML() {
   let menuHTML = "";
   menuArray.forEach(function (item) {
-    menuHTML += `<div class="shop-item-line">
-//   <div class="shop-item">
-//     <img src="${item.emoji}" alt="emoji picture of the food" />
-//     <div class="item-info">
-//       <p class="item-name">${item.name}</p>
-//       <p class="item-ingridients">${item.ingredients}</p>
-//       <p class="item-price">$${item.price}</p>
-//     </div>
-//   </div>
-//   <button type="button" class="add-btn" id="add-btn">
-//     +
-//   </button>
-// </div>;`;
+    menuHTML += 
+
+    // copy in the div for the menu from html
   });
   return menuHTML;
 }

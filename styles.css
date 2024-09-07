@@ -5,37 +5,44 @@ body {
   min-height: 1200px;
 }
 
-header {
-  background-image: url("images/african-food.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 700px;
-  height: 190px;
-}
-
-/* @media screen {
-  min-width: 600px;
-  max-width: 400px;
-} */
 main {
   width: 650px;
-  height: 100vh;
-  margin: auto 0;
+  margin: 0px auto;
 }
 
+header {
+  background-image: url("/images/african-food.jpg");
+  background-size: cover;
+  width: 700px;
+  height: 190px;
+  color: #ffffff;
+}
+
+/* header font sizes */
 .header-text {
-  padding: 20px;
-  color: navajowhite;
-  text-shadow: #393333 gray;
+  padding: 10px 40px;
 }
 
-/* shop items  */
+.header-title {
+  font-size: 38px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.header-subtitle {
+  font-size: 23px;
+  padding-top: 0px;
+  line-height: 0px;
+}
+
+/* shopping list properties */
 .shop-item-line {
   display: flex;
   justify-content: space-between;
-  padding: 40px 0;
-  border-bottom: solid #8b8b8b 1px;
+  padding: 70px 0px;
+  border-bottom: solid 1px #d2d2d2;
 }
+
 .shop-item {
   display: flex;
   line-height: 0px;
@@ -45,59 +52,64 @@ main {
   margin: 0px;
   padding: 0px;
 }
+
 .item-name {
-  font-size: 20px;
-  margin: 30px 0px 0px 0px;
+  font-size: 30px;
+  margin: 12px 0px 0px 0px;
 }
 
-.item-ingridients {
-  /* // convert this to lowercase in the js file */
-  font-size: 15px;
+.item-ingredients {
+  font-size: 18px;
   color: #8b8b8b;
-  margin: 5px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
 }
 
 .item-price {
   font-weight: bold;
-  margin: 10px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
 }
 
+.dollar-sign {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 15px;
+}
 .emoji {
   margin-right: 30px;
 }
 
 .add-btn {
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
+  border: #dedede solid 2px;
+  background-color: #ffffff;
+  width: 55px;
+  height: 55px;
   font-size: 30px;
-  border: solid #8b8b8b 1px;
-  background-color: white;
+  font-family: "Inter", sans-serif;
 }
 
 .add-btn:hover {
-  background-color: gray;
-  font-size: 35px;
-  border: black solid 2px;
+  font-size: 33px;
+  border: gray solid 3px;
 }
 
 .add-btn:active {
-  background-color: white;
-  border: lightblue solid 2px;
+  font-size: 27px;
+  border: #dedede solid 1px;
 }
-/* shopping cart */
+
+/* Shopping Cart properties */
 
 .your-order {
-  font-size: 15px;
+  font-size: 30px;
 }
 
 .cart-items {
   display: flex;
   justify-content: space-between;
-  font-size: 25px;
+  font-size: 29px;
   padding-right: 0px;
 }
-
 .dollar-sign-cart {
   font-size: 29px;
 }
@@ -108,60 +120,104 @@ main {
 
 .shopping-cart {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .hidden {
-  display: none;
+  display: none; /*block on click*/
 }
-/* change this to show the shopping cart */
+.render-cart-items {
+  padding-bottom: 20px;
+  border-bottom: 3px solid #393333;
+}
+
+.complete-btn,
+.pay-btn {
+  background-color: #16db99;
+  border: none;
+  color: white;
+  width: 650px;
+  padding: 13px;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.complete-btn:hover,
+.pay-btn:hover {
+  background-color: #17e39f;
+  color: #252525;
+}
+
+.complete-btn:active,
+.pay-btn:active {
+  background-color: #13ba82;
+  color: #ffffff;
+}
+
+.total-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+  line-height: 0px;
+  font-size: 30px;
+}
 
 .item-and-remove {
   display: flex;
   justify-content: space-between;
 }
 
-.render-cart-items {
-  padding-bottom: 20px;
-  border-bottom: 3px solid #393333;
-}
-
-.big-btn {
-  background-color: #16db99;
-  border-radius: 2px;
+.remove-btn {
   border: none;
-  color: white;
-  width: 600px;
-  padding: 10px;
+  background-color: #ffffff;
+  color: #bbbbbb;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-left: 25px;
 }
 
 .card-details {
-  /* display: none; */
+  display: none;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 450px;
   width: 600px;
-  box-shadow: 0px 0px 100px 10px black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 100px 10px #757575;
   background-color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.enter-details {
+  text-align: center;
+  margin: 40px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  margin: auto;
   width: 550px;
+  margin: auto;
 }
 
 input {
   margin: 0px 0px 20px 0px;
   padding: 20px 0px 20px 30px;
-  border-radius: 2px;
-  border: solid gray 1px;
+  border: 2px solid #757575;
+  border-radius: 4px;
+  font-size: 25px;
 }
 
-.card-details h1 {
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
+.pay-btn {
+  width: 550px;
 }
 
-.order-complete-message {
-  display: none;
+.order-message {
   font-size: 40px;
   text-align: center;
   background-color: #ecfdf5;
