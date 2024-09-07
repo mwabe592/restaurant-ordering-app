@@ -1,0 +1,39 @@
+import { menuArray } from "./data.js";
+
+const itemsList = document.getElementById("item-list");
+const payButton = document.getElementById("pay-btn");
+
+function getMenuHTML() {
+  let menuHTML = "";
+  menuArray.forEach(function (item) {
+    menuHTML += `<div class="shop-item-line">
+//   <div class="shop-item">
+//     <img src="${item.emoji}" alt="emoji picture of the food" />
+//     <div class="item-info">
+//       <p class="item-name">${item.name}</p>
+//       <p class="item-ingridients">${item.ingredients}</p>
+//       <p class="item-price">$${item.price}</p>
+//     </div>
+//   </div>
+//   <button type="button" class="add-btn" id="add-btn">
+//     +
+//   </button>
+// </div>;`;
+  });
+  return menuHTML;
+}
+console.log(getMenuHTML);
+
+function showMenu() {
+  itemsList.innerHTML = getMenuHTML;
+}
+
+payButton.addEventListener("click", showMenu);
+{
+  console.log("this button isclcickdm");
+}
+// // This is going to be the render items function that wil
+// // change the innerhtml of the shop-item-line div. remember to add
+// the item values as template strings linking to the data.js file object
+// <div class="shop-item-line">
+//
