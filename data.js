@@ -1,25 +1,23 @@
 export const menuArray = [
   {
-    name: "Jollof Rice",
+    name: "Nyama Choma",
     ingredients: ["rice", "tomato", "beef"],
     id: 0,
-    price: 14,
-    emoji: "images/jollof-rice.png",
+    price: 20,
+    emoji: "images/nyama-choma.jpg",
   },
   {
-    name: "Hamburger",
+    name: "Pilau",
     ingredients: ["beef", "cheese", "lettuce"],
     price: 12,
-    emoji: "images/hamburger.png",
+    emoji: "images/pilau.jpg",
     id: 1,
   },
   {
-    name: "Beer",
+    name: "Beef Stew",
     ingredients: ["grain, hops, yeast, water"],
     price: 12,
-    emoji: "images/beer.png",
+    emoji: "images/stew.jpg",
     id: 2,
   },
 ];
-
-//need to change the emoji file paths.

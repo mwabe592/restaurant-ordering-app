@@ -3,6 +3,8 @@ body {
   font-family: "Smythe", cursive;
   width: 700px;
   min-height: 1200px;
+  /* maybe play around with some background 
+  colours and images  */
 }
 
 main {
@@ -125,7 +127,11 @@ header {
 }
 
 .hidden {
-  /* display: none; block on click */
+  display: none;
+  /* want it to be shown on click, could 
+  be display block? I think it's display 
+  block because its a div and they're block by default!! change the style through 
+  event listener */
 }
 .cart-list {
   padding-bottom: 20px;

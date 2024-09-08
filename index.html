@@ -25,52 +25,14 @@
     <main>
       <div id="item-list">
         <!-- menu items- this should be rendered out by a js function-->
-        <div class="shop-item-line">
-          <div class="shop-item">
-            <img src="images/jollof-rice.png" class="emoji" />
-            <div class="item-info">
-              <p class="item-name">Jollof</p>
-              <p class="item-ingredients">tomato, rice, beef</p>
-              <p class="item-price"><span class="dollar-sign">$</span>20</p>
-            </div>
-          </div>
-          <button
-            data-buy="${item.id}"
-            type="button"
-            class="add-btn"
-            id="add-btn"
-          >
-            +
-          </button>
-        </div>
       </div>
-      <!-- suggested -->
+
       <div class="hidden" id="shopping-cart-list">
         <div class="shopping-cart-title" id="shopping-cart-title">
           <p class="your-order">Your Order</p>
         </div>
-        <!-- suggestion id="cart-list" -->
-        <div class="cart-list" id="cart-items">
+        <div class="cart-list" id="cart-list">
           <!-- shopping-cart -->
-          <div class="cart-items" id="cart-items">
-            <div class="item-and-remove">
-              <p class="cart-item-name">Jollof</p>
-              <!-- look into what the data attribute for buttons is -->
-              <button
-                type="button"
-                class="remove-btn"
-                id="remove-btn"
-                data-remove="${index}"
-              >
-                remove
-              </button>
-            </div>
-            <!-- why does this have the same class name as the other 
-            cart item above? -->
-            <p class="cart-item-name">
-              <span class="dollar-sign-cart">$ </span>20
-            </p>
-          </div>
         </div>
         <div class="total-price-container">
           <p>Total Price</p>
@@ -103,7 +65,7 @@
         </form>
       </div>
       <div class="order-coming-message" id="order-coming-message">
-        <!-- render text her -->
+        <!-- render text here using JS -->
         <p class="order-message">Thanks Ben! Your order is on its way</p>
       </div>
     </main>
