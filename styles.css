@@ -126,8 +126,8 @@ header {
   justify-content: center;
 }
 
-.hidden {
-  display: none;
+.cart-list-container {
+  /* display: none; */
   /* want it to be shown on click, could 
   be display block? I think it's display 
   block because its a div and they're block by default!! change the style through 

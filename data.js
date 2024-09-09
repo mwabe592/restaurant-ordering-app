@@ -2,9 +2,9 @@ export const menuArray = [
   {
     name: "Nyama Choma",
     ingredients: ["rice", "tomato", "beef"],
-    id: 0,
     price: 20,
     emoji: "images/nyama-choma.jpg",
+    id: 0,
   },
   {
     name: "Pilau",

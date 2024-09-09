@@ -1,15 +1,20 @@
 import { menuArray } from "./data.js";
 const itemsList = document.getElementById("item-list");
 const cartList = document.getElementById("cart-list");
+const cartListContainer = document.getElementById("cart-list-container");
 let addedItemsinCart = [];
 
-//setup event listener for add and remove buttons using an if else statement
-const addBtns = document.querySelectorAll(".add-btn");
-addBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    console.log(e.target.dataset);
-  });
+//event listener to handle adding items to the cart once + button is clicked
+document.addEventListener("click", function (e) {
+  if (e.target.dataset.buy) {
+    const newCartItem = e.target.dataset.buy;
+    addedItemsinCart.push(newCartItem);
+    cartListContainer.style.display = "block";
+    showCart();
+  }
 });
+
+//function to generate HTML for the menu items
 function getMenuHTML() {
   let menuHTML = "";
   menuArray.forEach(function (item) {
@@ -34,49 +39,54 @@ function getMenuHTML() {
   });
   return menuHTML;
 }
-
+// function to show menu items
 function showMenu() {
   itemsList.innerHTML = getMenuHTML();
 }
 showMenu();
-//created 2 functions for DOM efficiency
+
+// function to generate HTML for shopping cart items
 function getShoppingCart() {
   let shoppingCart = "";
-  addedItemsinCart.forEach(function (item) {
-    shoppingCart += `<div class="cart-items" id="cart-items">
+  addedItemsinCart.forEach(function (itemId) {
+    const cartItem = menuArray.find(function (item) {
+      return item.id === itemId;
+    });
+
+    if (cartItem) {
+      shoppingCart += `<div class="cart-items">
     <div class="item-and-remove">
-      <p class="cart-item-name">${item.name}</p>
+      <p class="cart-item-name">${cartItem.name}</p>
       <button
         type="button"
         class="remove-btn"
-        id="remove-btn"
-        data-remove="${index}"
+        data-remove="${cartItem.id}"
       >
         remove
       </button>
     </div>
     <p class="cart-item-name">
-      <span class="dollar-sign-cart">$ </span>20
+      <span class="dollar-sign-cart">$</span>${cartItem.price}
     </p>
   </div>`;
+    }
   });
   return shoppingCart;
 }
 
+//function to show shopping cart items
 function showCart() {
-  cartList.innerHTML = getShoppingCart();
+  cartList.textContent = getShoppingCart();
 }
 showCart();
 
-// <!-- need to look into why data property above is index -->
-
-function addToCart() {
-  const newCartItem = menuArray.filter(function (itemId) {
-    return item.id == itemId;
+//function to add items to cart
+function addToCart(itemId) {
+  const newCartItem = menuArray.find(function (item) {
+    return item.id === itemId;
   });
-  addedItemsinCart.push(newCartItem);
-  //and then we want to render out the cart once above function has run
-}
 
-/*code above is how to add the items to cart once they are clicked.
-Need to attach this to an event listener at some point*/
+  if (newCartItem) {
+    addedItemsinCart.push(newCartItem);
+  }
+}
