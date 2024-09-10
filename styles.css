@@ -183,17 +183,17 @@ header {
 }
 
 .card-details {
-  display: none;
+  display: none; /*change to block with complete button*/
   position: fixed;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
   margin: auto;
-  height: 450px;
+  height: 480px;
   width: 600px;
   border-radius: 5px;
-  box-shadow: 0px 0px 100px 10px #757575;
+  box-shadow: 0px 0px 200px 10px #757575;
   background-color: #ffffff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

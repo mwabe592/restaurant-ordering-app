@@ -2,16 +2,30 @@ import { menuArray } from "./data.js";
 const itemsList = document.getElementById("item-list");
 const cartList = document.getElementById("cart-list");
 const cartListContainer = document.getElementById("cart-list-container");
-let addedItemsinCart = [];
+const totalPrice = document.getElementById("total-price");
+const completeBtn = document.getElementById("complete-btn");
+const cardDetails = document.getElementById("card-details");
+let addedItemsInCart = [];
 
-//event listener to handle adding items to the cart once + button is clicked
+//event handling for adding and removing items to cart
 document.addEventListener("click", function (e) {
   if (e.target.dataset.buy) {
-    const newCartItem = e.target.dataset.buy;
-    addedItemsinCart.push(newCartItem);
+    const newCartItem = parseInt(e.target.dataset.buy);
+    addedItemsInCart.push(newCartItem);
     cartListContainer.style.display = "block";
     showCart();
+    getTotalPrice();
   }
+  if (e.target.dataset.remove) {
+    const itemIdToRemove = parseInt(e.target.dataset.remove);
+    removeItemfromCart(itemIdToRemove);
+    getTotalPrice();
+  }
+});
+
+//event listener for complete button
+completeBtn.addEventListener("click", function (e) {
+  cardDetails.style.display = "inline";
 });
 
 //function to generate HTML for the menu items
@@ -48,7 +62,9 @@ showMenu();
 // function to generate HTML for shopping cart items
 function getShoppingCart() {
   let shoppingCart = "";
-  addedItemsinCart.forEach(function (itemId) {
+
+  addedItemsInCart.forEach(function (itemId) {
+    // Find the corresponding item from menuArray
     const cartItem = menuArray.find(function (item) {
       return item.id === itemId;
     });
@@ -65,7 +81,7 @@ function getShoppingCart() {
         remove
       </button>
     </div>
-    <p class="cart-item-name">
+    <p class="cart-item-price">
       <span class="dollar-sign-cart">$</span>${cartItem.price}
     </p>
   </div>`;
@@ -76,7 +92,7 @@ function getShoppingCart() {
 
 //function to show shopping cart items
 function showCart() {
-  cartList.textContent = getShoppingCart();
+  cartList.innerHTML = getShoppingCart();
 }
 showCart();
 
@@ -87,6 +103,26 @@ function addToCart(itemId) {
   });
 
   if (newCartItem) {
-    addedItemsinCart.push(newCartItem);
+    addedItemsInCart.push(newCartItem);
   }
 }
+//function to remove item from cart
+function removeItemfromCart(itemIdToRemove) {
+  const indexToRemove = addedItemsInCart.indexOf(itemIdToRemove);
+
+  if (indexToRemove !== -1) {
+    addedItemsInCart.splice(indexToRemove, 1);
+  }
+
+  showCart();
+}
+
+// This has not worked maybe look into how to use the reduce method to
+// add the totalprice
+// function getTotalPrice() {
+//   let price = 0;
+//   addedItemsInCart.forEach(function (item) {
+//     price = +item.price;
+//   });
+//   totalPrice.textContent = price;
+// }
