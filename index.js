@@ -9,17 +9,18 @@ let addedItemsInCart = [];
 
 //event handling for adding and removing items to cart
 document.addEventListener("click", function (e) {
+  let itemId;
+
   if (e.target.dataset.buy) {
-    const newCartItem = parseInt(e.target.dataset.buy);
-    addedItemsInCart.push(newCartItem);
-    cartListContainer.style.display = "block";
-    showCart();
-    getTotalPrice();
+    itemId = parseInt(e.target.dataset.buy);
+    addToCart(itemId);
+  } else if (e.target.dataset.remove) {
+    itemId = parseInt(e.target.dataset.remove);
+    removeItemfromCart(itemId);
   }
-  if (e.target.dataset.remove) {
-    const itemIdToRemove = parseInt(e.target.dataset.remove);
-    removeItemfromCart(itemIdToRemove);
-    getTotalPrice();
+  if (itemId) {
+    updateCart();
+    console.log("Items in Cart:", addedItemsInCart);
   }
 });
 
@@ -94,18 +95,21 @@ function getShoppingCart() {
 function showCart() {
   cartList.innerHTML = getShoppingCart();
 }
-showCart();
 
 //function to add items to cart
-function addToCart(itemId) {
-  const newCartItem = menuArray.find(function (item) {
-    return item.id === itemId;
-  });
+// function addToCart(itemId) {
+//   addedItemsInCart.push(itemId);
+//   cartListContainer.style.display = "block";
+// }
 
-  if (newCartItem) {
-    addedItemsInCart.push(newCartItem);
+function addToCart(itemId) {
+  const existingItem = addedItemsInCart.find((id) => id === itemId);
+  if (!existingItem) {
+    addedItemsInCart.push(itemId);
   }
+  cartListContainer.style.display = "block";
 }
+
 //function to remove item from cart
 function removeItemfromCart(itemIdToRemove) {
   const indexToRemove = addedItemsInCart.indexOf(itemIdToRemove);
@@ -113,16 +117,22 @@ function removeItemfromCart(itemIdToRemove) {
   if (indexToRemove !== -1) {
     addedItemsInCart.splice(indexToRemove, 1);
   }
-
-  showCart();
 }
 
-// This has not worked maybe look into how to use the reduce method to
-// add the totalprice
-// function getTotalPrice() {
-//   let price = 0;
-//   addedItemsInCart.forEach(function (item) {
-//     price = +item.price;
-//   });
-//   totalPrice.textContent = price;
-// }
+function getTotalPrice() {
+  // reduce takes in callback function and the initial value which is going to be 0
+  const total = addedItemsInCart.reduce((total, itemId) => {
+    // find the item in the menuArray
+    const item = menuArray.find((item) => item.id === itemId);
+
+    // if the item in the menuArray is found, then add it to the total, otherwise just have total
+    return item ? total + item.price : total;
+  }, 0);
+
+  totalPrice.textContent = total;
+}
+
+function updateCart() {
+  showCart();
+  getTotalPrice();
+}

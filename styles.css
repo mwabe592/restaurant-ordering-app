@@ -127,12 +127,9 @@ header {
 }
 
 .cart-list-container {
-  /* display: none; */
-  /* want it to be shown on click, could 
-  be display block? I think it's display 
-  block because its a div and they're block by default!! change the style through 
-  event listener */
+  display: none;
 }
+
 .cart-list {
   padding-bottom: 20px;
   border-bottom: 3px solid #393333;
